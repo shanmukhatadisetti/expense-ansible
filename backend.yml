@@ -1,5 +1,5 @@
 - name: Backend setup
-  hosta: all
+  hosts: all
   become: yes
   tasks:
     - name: Enable Nodejs
