@@ -46,7 +46,7 @@
 
     - name: starting backend services
       ansible.builtin.systemd:
-        name: mysql
+        name: backend
         state: restarted
         enabled: yes
         daemon-reload: yes
