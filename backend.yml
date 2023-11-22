@@ -10,6 +10,10 @@
         name: nodejs
         state: present
 
+    - name: Add application user
+      ansible.builtin.user:
+        name: expense
+
     - name: Copying backend configuration
       ansible.builtin.copy:
         src: backend.service
