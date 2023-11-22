@@ -22,7 +22,7 @@
         path: /usr/share/nginx/html
         state: directory
 
-    - name: Downloading frontend code and ectracting
+    - name: Downloading frontend code and extracting
       ansible.builtin.unarchive:
         src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
         dest: /usr/share/nginx/html
