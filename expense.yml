@@ -1,4 +1,4 @@
-- name: Mysql setup
+- name: Expense project
   hosts: all
   become: yes
   roles:
