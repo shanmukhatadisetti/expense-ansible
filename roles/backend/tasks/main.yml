@@ -11,7 +11,7 @@
     name: expense
 
 - name: Copying backend configuration
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: backend.service
     dest: /etc/systemd/system/backend.service
 
