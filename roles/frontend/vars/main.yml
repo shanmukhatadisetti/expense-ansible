@@ -1,2 +1,2 @@
-app_location: /app
+app_location: /usr/share/nginx/html
 component: frontend
