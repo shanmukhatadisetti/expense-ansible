@@ -31,7 +31,7 @@
     state: present
 
 - name: Load schema
-  ansible.builtin.shell: mysql -h mysql.autonagar.in -uroot -pExpenseApp@1 < /app/schema/backend.sql
+  ansible.builtin.shell: mysql -h {{ lookup('amazon.aws.aws_ssm', 'expense.backend.DB_HOST', region='us-east-1' ) }} -uroot -p{{ lookup('amazon.aws.aws_ssm', 'expense.backend.DB_PASS', region='us-east-1' ) }} < /app/schema/backend.sql
 
 - name: starting backend services
   ansible.builtin.systemd:
