@@ -38,7 +38,7 @@
   args:
     chdir: /app
 
-- name: Install Mysql Schema
+- name: Install Mysql client
   ansible.builtin.dnf:
     name: mysql
 
@@ -50,5 +50,5 @@
     name: backend
     state: restarted
     enabled: yes
-    daemon_reload: true
+    daemon-reload: yes
 
