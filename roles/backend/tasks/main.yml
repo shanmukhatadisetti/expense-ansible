@@ -12,7 +12,7 @@
 - name: Copying Backend Service
   ansible.builtin.template:
     src: backend.service
-    dest: etc/systemd/system/backend.service
+    dest: /etc/systemd/system/backend.service
 
 - name: Adding Application User
   ansible.builtin.user:
