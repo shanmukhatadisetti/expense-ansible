@@ -8,21 +8,10 @@
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
-- name: Removing a directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
-
-- name: Adding a directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-
-- name: Download and Extract
-  ansible.builtin.unarchive:
-    src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+- name: importing role
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app_prereq
 
 - name: Start Nginx Service
   ansible.builtin.systemd:

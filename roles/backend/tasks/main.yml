@@ -18,25 +18,16 @@
   ansible.builtin.user:
     name: expense
 
-- name: cleaning Old Content
-  ansible.builtin.file:
-    path: /app
-    state: absent
 
-- name: Creating a directory
-  ansible.builtin.file:
-    path: /app
-    state: directory
-
-- name: Download and Extract
-  ansible.builtin.unarchive:
-    src: https://expense-artifacts.s3.amazonaws.com/backend.zip
-    dest: /app
-    remote_src: yes
 - name: Download Dependencies
   ansible.builtin.shell: npm install
   args:
     chdir: /app
+
+- name: importing role
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app_prereq
 
 - name: Install Mysql client
   ansible.builtin.dnf:
