@@ -1,3 +1,6 @@
+- name: Set-Hostname
+  ansible.builtin.shell: set-hostname backend
+
 - name: Disable Nodejs
   ansible.builtin.shell: dnf module disable nodejs -y
 
