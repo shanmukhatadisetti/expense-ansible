@@ -18,16 +18,17 @@
   ansible.builtin.user:
     name: expense
 
+- name: importing role
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app_prereq
 
 - name: Download Dependencies
   ansible.builtin.shell: npm install
   args:
     chdir: /app
 
-- name: importing role
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: app_prereq
+
 
 - name: Install Mysql client
   ansible.builtin.dnf:
