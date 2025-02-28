@@ -26,6 +26,11 @@
     name: elk
     tasks_from: filebeat
 
+- name: importing promeheus
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node-exporter
+
 - name: Start Nginx Service
   ansible.builtin.systemd:
     name: nginx
