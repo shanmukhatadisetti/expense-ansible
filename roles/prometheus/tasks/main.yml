@@ -1,9 +1,9 @@
-- name: prometheus conf setup
+- name: Updating prometheus-yml file
   ansible.builtin.template:
     src: prometheus.yml
     dest: /opt/prometheus/prometheus.yml
 
-- name: Restart prometheus
+- name: Restart Logstash
   ansible.builtin.systemd:
     name: prometheus
     state: restarted
