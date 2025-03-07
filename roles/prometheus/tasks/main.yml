@@ -8,6 +8,13 @@
     src: alerts.yml
     dest: /opt/prometheus/alerts.yml
 
+- name: Restart prometheus
+  ansible.builtin.systemd:
+    name: prometheus
+    state: restarted
+    enabled: yes
+    daemon-reload: yes
+
 - name: copying prometheus-yml file - alertsmanager
   ansible.builtin.template:
     src: alertmanager.yml
@@ -19,9 +26,3 @@
     state: restarted
     enabled: yes
 
-- name: Restart prometheus
-  ansible.builtin.systemd:
-    name: prometheus
-    state: restarted
-    enabled: yes
-    daemon-reload: yes
