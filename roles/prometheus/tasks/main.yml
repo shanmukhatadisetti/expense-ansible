@@ -8,6 +8,11 @@
     src: alerts.yml
     dest: /opt/prometheus/alerts.yml
 
+- name: copying prometheus-yml file - alertsmanager
+  ansible.builtin.template:
+    src: alertmanager.yml
+    dest: /opt/alertmanager/alertmanager.yml
+
 - name: Restart Logstash
   ansible.builtin.systemd:
     name: prometheus
